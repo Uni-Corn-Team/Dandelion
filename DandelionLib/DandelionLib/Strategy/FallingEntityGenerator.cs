@@ -1,10 +1,12 @@
-﻿using System;
+﻿using DandelionLib.Entities;
+using DandelionLib.Strategy.GameDifficulty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DandelionLib
+namespace DandelionLib.Strategy
 {
     class FallingEntityGenerator : IEntityGenerator
     {

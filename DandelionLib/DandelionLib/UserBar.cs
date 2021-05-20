@@ -14,7 +14,20 @@ namespace DandelionLib
 
         public void Update(object o)
         {
-            throw new NotImplementedException();
+            if(o is UserNotifyObserversContract contract){
+                if(contract.CurrentHealth != null)
+                {
+                    _healthBar = (int)contract.CurrentHealth;
+                }
+                if (contract.CurrentHight != null)
+                {
+                    _hightBar = (int)contract.CurrentHight;
+                }
+                if (contract.MaxHealth != null)
+                {
+                    _maxHealth = (int)contract.MaxHealth;
+                }
+            }
         }
 
         public int HightBar => _hightBar;

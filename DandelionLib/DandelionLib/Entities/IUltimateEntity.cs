@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DandelionLib
+namespace DandelionLib.Entities
 {
-    interface IFallingEntity: IEntity
+    interface IUltimateEntity: IEntity
     {
     }
 }

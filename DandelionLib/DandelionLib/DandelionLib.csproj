@@ -41,27 +41,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FallingBomb.cs" />
-    <Compile Include="FallingBombFactory.cs" />
-    <Compile Include="FallingHealth.cs" />
-    <Compile Include="FallingHealthFactory.cs" />
+    <Compile Include="Strategy\GameDifficulty\EasyGame.cs" />
+    <Compile Include="Entities\FallingEntities\FallingBomb.cs" />
+    <Compile Include="Entities\EntitiesFactory\FallingBombFactory.cs" />
+    <Compile Include="Strategy\FallingEntityGenerator.cs" />
+    <Compile Include="Entities\FallingEntities\FallingHealth.cs" />
+    <Compile Include="Entities\EntitiesFactory\FallingHealthFactory.cs" />
+    <Compile Include="Strategy\GameDifficulty\HardGame.cs" />
     <Compile Include="ICanColideWithEntity.cs" />
-    <Compile Include="IEntity.cs" />
-    <Compile Include="IEntityFactory.cs" />
-    <Compile Include="IFallingEntity.cs" />
-    <Compile Include="ILargeEntity.cs" />
-    <Compile Include="ILittleEntity.cs" />
-    <Compile Include="IMiddleEntity.cs" />
-    <Compile Include="IUltimateEntity.cs" />
-    <Compile Include="LargeBomb.cs" />
-    <Compile Include="LargeHealth.cs" />
-    <Compile Include="LittleBomb.cs" />
-    <Compile Include="LittleHealth.cs" />
-    <Compile Include="MiddleBomb.cs" />
-    <Compile Include="MiddleHealth.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\EntitiesFactory\IEntityFactory.cs" />
+    <Compile Include="Strategy\IEntityGenerator.cs" />
+    <Compile Include="Entities\FallingEntities\IFallingEntity.cs" />
+    <Compile Include="Strategy\GameDifficulty\IGameDifficulty.cs" />
+    <Compile Include="Entities\ILargeEntity.cs" />
+    <Compile Include="Entities\ILittleEntity.cs" />
+    <Compile Include="Entities\IMiddleEntity.cs" />
+    <Compile Include="IObservable.cs" />
+    <Compile Include="IObserver.cs" />
+    <Compile Include="Entities\IUltimateEntity.cs" />
+    <Compile Include="Entities\FallingEntities\FallingLargeBomb.cs" />
+    <Compile Include="Entities\FallingEntities\FallingLargeHealth.cs" />
+    <Compile Include="Entities\FallingEntities\FallingLittleBomb.cs" />
+    <Compile Include="Entities\FallingEntities\FallingLittleHealth.cs" />
+    <Compile Include="Entities\FallingEntities\FallingMiddleBomb.cs" />
+    <Compile Include="Entities\FallingEntities\FallingMiddleHealth.cs" />
+    <Compile Include="Strategy\GameDifficulty\NormalGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UltimateBomb.cs" />
-    <Compile Include="UltimateHeath.cs" />
+    <Compile Include="Entities\FallingEntities\FallingUltimateBomb.cs" />
+    <Compile Include="Entities\FallingEntities\FallingUltimateHeath.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserBar.cs" />
+    <Compile Include="UserNotifyObserversContract.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
