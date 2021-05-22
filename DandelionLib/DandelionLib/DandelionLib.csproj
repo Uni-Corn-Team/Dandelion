@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityAdapter.cs" />
+    <Compile Include="Enums\EntityType.cs" />
+    <Compile Include="IUnityEntityObject.cs" />
     <Compile Include="Strategy\GameDifficulty\EasyGame.cs" />
     <Compile Include="Entities\FallingEntities\FallingBomb.cs" />
     <Compile Include="Entities\EntitiesFactory\FallingBombFactory.cs" />
