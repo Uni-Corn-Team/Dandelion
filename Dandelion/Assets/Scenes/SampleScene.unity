@@ -751,7 +751,7 @@ MonoBehaviour:
   - {fileID: 668854805505083673, guid: 19a23942c6a96904a9b34f2f15672a4c, type: 3}
   - {fileID: 668854805505083673, guid: 247129c8352d6434b917ceb41e9cad11, type: 3}
   - {fileID: 668854805505083673, guid: f40ecca67d5680c4b9f5649321193900, type: 3}
-  Camera: {fileID: 0}
+  Camera: {fileID: 519420028}
   Zero: {fileID: 1341316858}
 --- !u!4 &1556922698
 Transform:

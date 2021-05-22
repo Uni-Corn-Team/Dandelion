@@ -33,7 +33,6 @@ public class PlayerMove : MonoBehaviour
         playerObject = LayerMask.NameToLayer("Player");
         collideObject = LayerMask.NameToLayer("Ground");
 
-
     }
     
     private void Run()
