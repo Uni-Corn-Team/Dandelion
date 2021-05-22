@@ -10,6 +10,8 @@ namespace DandelionLib.Strategy
 {
     class FallingEntityGenerator : IEntityGenerator
     {
+        private const int LIMIT_COUNT = 10;
+
         public FallingEntityGenerator(IGameDifficulty gameDifficulty)
         {
             GameDifficulty = gameDifficulty;
@@ -30,13 +32,14 @@ namespace DandelionLib.Strategy
         public void ChangeLevel(IGameDifficulty newDifficulty)
         {
             GameDifficulty = newDifficulty;
+            Reset();
         }
 
         public IEntity GetNext()
         {
-            if(EntitiesQueue.Count < 5)
+            if(EntitiesQueue.Count < LIMIT_COUNT / 2)
             {
-                AddEntities(5);
+                AddEntities(LIMIT_COUNT / 2);
             }
             return EntitiesQueue.Dequeue();
         }
@@ -44,6 +47,7 @@ namespace DandelionLib.Strategy
         public void Reset()
         {
             EntitiesQueue = new Queue<IEntity>();
+            AddEntities(LIMIT_COUNT);
         }
     }
 }
