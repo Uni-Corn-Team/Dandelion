@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DandelionLib.Strategy.GameDifficulty
 {
-    class Impossible : IGameDifficulty
+    class ImpossibleGame : IGameDifficulty
     {
         public Queue<IFallingEntity> GetFallingEntitiesQueue(int size)
         {
