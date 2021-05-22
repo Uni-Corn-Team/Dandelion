@@ -6,17 +6,22 @@ public class BG : MonoBehaviour
     private Transform m_Transform;
     private float m_Size;
     private float m_pos;
+    public GameObject player;
+    public GameObject camera;
     // Start is called before the first frame update
     void Start()
     {
         m_Transform = GetComponent<Transform>();
         m_Size = GetComponent<SpriteRenderer>().bounds.size.y;
+        player = GameObject.Find("Player");
+        camera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Moves();  
+        if(player.transform.position.y > camera.transform.position.y)
+            Moves();  
     }
 
 

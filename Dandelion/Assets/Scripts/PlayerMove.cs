@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private int lives = 5;
-    [SerializeField] private float jumpForce = 1f;
+    [SerializeField] private float jumpForce = 10f;
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
+
+    private bool isGrounded;
+    public Transform groundCheck;
+
+    
+    public float checkRadius;
+    public LayerMask whatIsGround;
+
+    private int extraJumps;
+    public int extraJumpsValue;
 
     //for jumping through platforms
     int playerObject, collideObject, fallingEntity, groundObject;
@@ -21,9 +31,8 @@ public class PlayerMove : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         playerObject = LayerMask.NameToLayer("Player");
-        collideObject = LayerMask.NameToLayer("Collide");
-        fallingEntity = LayerMask.NameToLayer("FallingEntities");
-        groundObject = LayerMask.NameToLayer("Ground");
+        collideObject = LayerMask.NameToLayer("Ground");
+
 
     }
     
@@ -40,18 +49,28 @@ public class PlayerMove : MonoBehaviour
         rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+
+    private void FixedUpdate()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        if (Input.GetButton("Horizontal"))
+            Run();
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Horizontal"))
-            Run();
-        if (Input.GetButtonDown("Jump"))
+        if(isGrounded)
+        {
+            extraJumps = extraJumpsValue;
+        }
+
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) && extraJumps > 0)
+        {
+            Jump();
+            extraJumps--;
+        }
+        else if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) && extraJumps == 0 && isGrounded)
             Jump();
 
         if(rigidbody2D.velocity.y > 0)
@@ -63,7 +82,6 @@ public class PlayerMove : MonoBehaviour
             Physics2D.IgnoreLayerCollision(playerObject, collideObject, false);
         }
 
-        Physics2D.IgnoreLayerCollision(fallingEntity, collideObject, true);
-        Physics2D.IgnoreLayerCollision(fallingEntity, groundObject, true);
+      
     }
 }
