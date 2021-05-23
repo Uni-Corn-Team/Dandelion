@@ -84,6 +84,7 @@
     <Compile Include="Assets\DandelionLib\UserBar.cs" />
     <Compile Include="Assets\Scripts\Background\BG.cs" />
     <Compile Include="Assets\DandelionLib\Strategy\FallingEntityGenerator.cs" />
+    <Compile Include="Assets\Scripts\Menu\PauseMenuControls.cs" />
     <Compile Include="Assets\DandelionLib\Entities\FallingEntities\FallingUltimateHeath.cs" />
     <Compile Include="Assets\DandelionLib\Strategy\GameDifficulty\EasyGame.cs" />
     <Compile Include="Assets\DandelionLib\Statics\NumSet.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Assets\DandelionLib\Strategy\GameDifficulty\IGameDifficulty.cs" />
     <Compile Include="Assets\DandelionLib\Strategy\IEntityGenerator.cs" />
     <Compile Include="Assets\DandelionLib\Entities\FallingEntities\FallingMiddleBomb.cs" />
-    <Compile Include="Assets\Scripts\Menu\PauseMenuControls.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
 
-    private bool isGrounded;
+
     public Transform groundCheck;
 
     public DandelionLib.User User;
@@ -20,11 +20,13 @@ public class PlayerMove : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
 
-    private int extraJumps;
-    public int extraJumpsValue;
+
+
+    public float _prevY, _presentY;
+    public GameObject player;
 
     //for jumping through platforms
-    int playerObject, collideObject, fallingEntity, groundObject;
+    int playerObject, collideObject;
 
 
     private void Awake()
@@ -37,6 +39,10 @@ public class PlayerMove : MonoBehaviour
 
         User = new DandelionLib.User(100, 100);
 
+  
+        
+
+
     }
     
     private void Run()
@@ -48,33 +54,35 @@ public class PlayerMove : MonoBehaviour
     }
 
     private void Jump()
-    {
-        rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+    {     
+         rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
+
+   
 
 
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+       
         if (Input.GetButton("Horizontal"))
             Run();
+
+
     }
     // Update is called once per frame
     void Update()
     {
-        if(isGrounded)
-        {
-            extraJumps = extraJumpsValue;
-        }
+      
 
-        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) && extraJumps > 0)
-        {
+       
+    
+       
+
+       
+        if(rigidbody2D.velocity.y == 0)
             Jump();
-            extraJumps--;
-        }
-        else if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) && extraJumps == 0 && isGrounded)
-            Jump();
+      
 
         if(rigidbody2D.velocity.y > 0)
         {

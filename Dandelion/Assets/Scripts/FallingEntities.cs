@@ -16,7 +16,7 @@ public class FallingEntities : MonoBehaviour
 
     private List<IEntity> entities;
 
-    int fallingObject, collideObject;
+    int fallingObject, collideObject, playerObject;
 
 
     //for collide bombs
@@ -32,6 +32,7 @@ public class FallingEntities : MonoBehaviour
 
         fallingObject = LayerMask.NameToLayer("FallingEntity");
         collideObject = LayerMask.NameToLayer("Ground");
+        playerObject = LayerMask.NameToLayer("Player");
         //making new bomb
         var fe = Instantiate(bombs[0], Zero);
         fe.transform.localPosition = new Vector3(-5, 0, 0);
@@ -73,8 +74,9 @@ public class FallingEntities : MonoBehaviour
 
 
         Physics2D.IgnoreLayerCollision(fallingObject, collideObject, true);
+        Physics2D.IgnoreLayerCollision(fallingObject, playerObject, true);
 
-        if(_falingEntitiesQueue[_falingEntitiesQueue.Count-1].transform.localPosition.y - Zero.position.y < -2)
+        if (_falingEntitiesQueue[_falingEntitiesQueue.Count-1].transform.localPosition.y - Zero.position.y < -2)
         {
             var entity = _fallingEntityGenerator.GetNext();
             int id = (int)new EntityAdapter(entity).Id;
