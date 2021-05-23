@@ -10,25 +10,35 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] rsl;
     List<string> resolutions;
     public Dropdown dropdown;
-    bool isFullScreen = false;
+    public bool isFullScreen;
+    public GameObject FSToggle;
+    public GameObject DropDownText;
 
     public void Awake()
     {
+        FSToggle.GetComponent<Toggle>().isOn = Screen.fullScreen;
+        isFullScreen = Screen.fullScreen;
         resolutions = new List<string>();
         rsl = Screen.resolutions;
+        Resolution currentResolution = Screen.currentResolution;
+        rsl[0] = currentResolution;
+        for (int i = 0; i < resolutions.Count - 1; i++)
+        {
+            rsl[i + 1] = rsl[i];
+        }
         foreach (var i in rsl)
         {
             resolutions.Add(i.width + "x" + i.height);
         }
         dropdown.ClearOptions();
         dropdown.AddOptions(resolutions);
-        
+
     }
 
     public void FullScreenToggle()
     {
-        Screen.fullScreen = !Screen.fullScreen;
-        isFullScreen = !isFullScreen;
+        Screen.fullScreen = FSToggle.GetComponent<Toggle>().isOn;
+        isFullScreen = FSToggle.GetComponent<Toggle>().isOn;
     }
 
     public void AudioVolume(float sliderValue)
