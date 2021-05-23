@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DandelionLib
 {
-    interface IObserver
+    public interface IObserver
     {
         void Update(object o);
     }

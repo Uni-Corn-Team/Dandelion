@@ -8,7 +8,7 @@ namespace DandelionLib.Enums
 {
     enum EntityType
     {
-        NonType,
+        NonType = -1,
         FallingLittleBomb,
         FallingMiddleBomb,
         FallingLargeBomb,

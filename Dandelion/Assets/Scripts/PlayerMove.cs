@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
@@ -14,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
 
+    public DandelionLib.User User;
     
     public float checkRadius;
     public LayerMask whatIsGround;
@@ -28,10 +30,12 @@ public class PlayerMove : MonoBehaviour
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerObject = LayerMask.NameToLayer("Player");
         collideObject = LayerMask.NameToLayer("Ground");
+
+        User = new DandelionLib.User(100, 100);
 
     }
     

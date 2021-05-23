@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace DandelionLib
 {
-    class User : ICanColideWithEntity, IObservable
+    public class User : ICanColideWithEntity, IObservable
     {
         private int _currentHealth;
         private int _currentHight;
         private int _maxHealth;
+
+        public int CureentHealth => _currentHealth;
 
         public User(int maxHealth, int currentHealth)
         {
