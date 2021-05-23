@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CameraController : MonoBehaviour
     private bool isLeft;
     private Transform player;
     private int lastX;
+    public GameObject CanvasPause;
+    public bool IsPaused = false;
 
     //limits
     [SerializeField]
@@ -23,13 +26,29 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
+        Time.timeScale = 1;
+        IsPaused = false;
         FindPlayer(isLeft); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IsPaused)
+            {
+                IsPaused = false;
+                CanvasPause.GetComponent<PauseMenuControls>().BackPressed();
+            }
+            else
+            {
+                CanvasPause.SetActive(true);
+                Time.timeScale = 0;
+                IsPaused = true;
+            }
+        }
+        if (player)
         {
             int currentX = Mathf.RoundToInt(player.position.x);
             if (currentX > lastX) isLeft = false;

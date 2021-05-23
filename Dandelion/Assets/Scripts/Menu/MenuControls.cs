@@ -9,12 +9,6 @@ public class MenuControls : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
-
-    public void SettingsPressed()
-    {
-        SceneManager.LoadScene("Game");
-    }
-
     public void ExitPressed()
     {
         Application.Quit();
