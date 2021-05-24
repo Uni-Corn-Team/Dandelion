@@ -1,3 +1,4 @@
+using DandelionLib;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,10 +25,12 @@ public class PlayerMove : MonoBehaviour
 
     public float _prevY, _presentY;
     public GameObject player;
+    public GameObject healthbar;
 
     //for jumping through platforms
     int playerObject, collideObject;
 
+    private UserBar UserBar;
 
     private void Awake()
     {
@@ -38,11 +41,7 @@ public class PlayerMove : MonoBehaviour
         collideObject = LayerMask.NameToLayer("Ground");
 
         User = new DandelionLib.User(100, 100);
-
-  
         
-
-
     }
     
     private void Run()
@@ -74,11 +73,12 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
       
-
-       
-    
-       
-
+        if(UserBar == null)
+        {
+            UserBar = healthbar.GetComponent<Healthbar>().UserBar;
+            User.AddObserver(UserBar);
+            Debug.LogWarning("***");
+        }
        
         if(rigidbody2D.velocity.y == 0)
             Jump();

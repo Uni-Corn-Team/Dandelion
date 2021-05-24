@@ -28,7 +28,7 @@ public class FallingEntities : MonoBehaviour
     void Start()
     {
         entities = new List<IEntity>();
-        _fallingEntityGenerator = new FallingEntityGenerator(new NormalGame());
+        _fallingEntityGenerator = new FallingEntityGenerator(new HardGame());
 
         fallingObject = LayerMask.NameToLayer("FallingEntity");
         collideObject = LayerMask.NameToLayer("Ground");

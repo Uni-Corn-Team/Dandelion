@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace DandelionLib
 {
-    class UserBar : IObserver
+    public class UserBar : IObserver
     {
         private int _healthBar;
         private int _hightBar;
         private int _maxHealth;
+
+        public UserBar()
+        {
+            _healthBar = 100;
+            _maxHealth = 100;
+            _hightBar = 0;
+        }
 
         public void Update(object o)
         {
@@ -32,6 +39,6 @@ namespace DandelionLib
 
         public int HightBar => _hightBar;
 
-        public double HealthBar => _healthBar / (double)_maxHealth;
+        public float HealthBar => (float)_healthBar / (float)_maxHealth;
     }
 }

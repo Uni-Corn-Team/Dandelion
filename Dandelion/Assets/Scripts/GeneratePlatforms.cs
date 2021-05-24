@@ -7,6 +7,7 @@ public class GeneratePlatforms : MonoBehaviour
     public GameObject[] SmallPlatforms;
     public GameObject Camera;
     public Transform Zero;
+    public GameObject Player;
 
     private Vector3 _lastUpdateCameraPosition;
     private Vector3 _lastZeroPosition;
@@ -40,6 +41,10 @@ public class GeneratePlatforms : MonoBehaviour
             var cell = _platforms.Dequeue();
             Destroy(cell);
         }
+        if(Player.transform.position.y < _deathline - 5)
+        {
+            Debug.LogWarning($"{this}: THERE IS DEATH TIME");
+        }
     }
 
     public void Generate(float x, float y)
@@ -60,6 +65,9 @@ public class GeneratePlatforms : MonoBehaviour
             Generate(i, _lastZeroPosition.y + Random.Range(-1, 1));
         }
         _lastZeroPosition.y += Random.Range(2, 3);
-        _deathline = _lastUpdateCameraPosition.y - 20;
+        if (_lastUpdateCameraPosition.y - 25 > _deathline)
+        {
+            _deathline = _lastUpdateCameraPosition.y - 20;
+        }
     }
 }

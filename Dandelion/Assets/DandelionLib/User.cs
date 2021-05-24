@@ -34,27 +34,21 @@ namespace DandelionLib
             if (_currentHealth > _maxHealth)
             {
                 _currentHealth = _maxHealth;
-                NotifyObservers(
-                    new UserNotifyObserversContract
-                    {
-                        CurrentHealth = _currentHealth,
-                        CurrentHight = _currentHight,
-                        MaxHealth = _maxHealth
-                    }
-                    );
             }
 
             if (_currentHealth <= 0)
             {
-                NotifyObservers(
-                    new UserNotifyObserversContract
-                    {
-                        CurrentHealth = _currentHealth,
-                        CurrentHight = _currentHight,
-                        MaxHealth = _maxHealth
-                    }
-                    );
+                _currentHealth = 0;
             }
+
+            NotifyObservers(
+    new UserNotifyObserversContract
+    {
+        CurrentHealth = _currentHealth,
+        CurrentHight = _currentHight,
+        MaxHealth = _maxHealth
+    }
+    );
         }
 
         public void DeleteObserver(IObserver observer)
@@ -64,7 +58,7 @@ namespace DandelionLib
 
         public void NotifyObservers(object o)
         {
-            foreach(var observer in Observers)
+            foreach (var observer in Observers)
             {
                 observer.Update(o);
             }
