@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
     public Image Bar;
+    public Text TextBar;
     public float Fill;
     public UserBar UserBar;
 
@@ -20,9 +21,10 @@ public class Healthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fill = UserBar.HealthBar;
+        Fill = UserBar.HealthBarPercents;
         //Debug.LogWarning($"HB: {Fill}");
         Bar.fillAmount = Fill;
+        TextBar.text = $"{UserBar.HealthBar} из {UserBar.MaxHealth}";
 
         if(Fill == 0)
         {

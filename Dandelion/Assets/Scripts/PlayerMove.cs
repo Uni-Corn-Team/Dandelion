@@ -21,9 +21,9 @@ public class PlayerMove : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
 
+    public float leftBorder, rightBorder;
 
-
-    public float _prevY, _presentY;
+   
     public GameObject player;
     public GameObject healthbar;
 
@@ -41,14 +41,17 @@ public class PlayerMove : MonoBehaviour
         collideObject = LayerMask.NameToLayer("Ground");
 
         User = new DandelionLib.User(100, 100);
-        
+        leftBorder = -12f;
+        rightBorder = 12f;
+
+
     }
     
     private void Run()
     {
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
+        transform.position = new Vector3(Mathf.Clamp(Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime).x, leftBorder, rightBorder), transform.position.y, transform.position.z);
         spriteRenderer.flipX = dir.x < 0.0f;
     }
 
@@ -80,7 +83,7 @@ public class PlayerMove : MonoBehaviour
             Debug.LogWarning("***");
         }
        
-        if(rigidbody2D.velocity.y == 0)
+        if(rigidbody2D.velocity.y == 0 && Input.GetButtonDown("Vertical"))
             Jump();
       
 

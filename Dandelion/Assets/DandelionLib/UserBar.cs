@@ -39,6 +39,10 @@ namespace DandelionLib
 
         public int HightBar => _hightBar;
 
-        public float HealthBar => (float)_healthBar / (float)_maxHealth;
+        public float HealthBarPercents => (float)_healthBar / (float)_maxHealth;
+
+        public int HealthBar => _healthBar;
+
+        public int MaxHealth => _maxHealth;
     }
 }

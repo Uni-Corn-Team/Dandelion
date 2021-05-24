@@ -49,11 +49,12 @@ public class FallingEntities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // Zero.Translate(new Vector2(Zero.position.x, player.transform.position.y + 20));
         GameObject Removef = null;
         int index = -1;
         foreach (var item in _falingEntitiesQueue)
         {
-            if (Mathf.Abs(player.transform.position.x - item.transform.position.x) < 0.5f && Mathf.Abs(player.transform.position.y - item.transform.position.y) < 1.23f)
+            if (Mathf.Abs(player.transform.position.x - item.transform.position.x) < 1f && Mathf.Abs(player.transform.position.y - item.transform.position.y) < 1.23f)
             {
                 
                 Removef = item;
@@ -80,7 +81,7 @@ public class FallingEntities : MonoBehaviour
         {
             var entity = _fallingEntityGenerator.GetNext();
             int id = (int)new EntityAdapter(entity).Id;
-            var fe = Instantiate(bombs[id], Zero);
+            var fe = Instantiate(bombs[id], Zero.position, Zero.rotation);
             fe.transform.localPosition = new Vector3(Random.Range(-9,9), Zero.position.y + 2, 0);
             _falingEntitiesQueue.Add(fe);
             entities.Add(entity);
