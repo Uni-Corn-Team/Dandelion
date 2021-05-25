@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DandelionLib.Entities
 {
-    interface IEntity
+    public interface IEntity
     {
         int ColideValue { get; }
 

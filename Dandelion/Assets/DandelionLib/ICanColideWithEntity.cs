@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DandelionLib
 {
-    interface ICanColideWithEntity
+    public interface ICanColideWithEntity
     {
         void ChangeHealth(int val);
     }

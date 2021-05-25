@@ -10,11 +10,12 @@ public class FallingEntities : MonoBehaviour
 {
     public GameObject[] bombs;
     public Transform Zero;
-    private List<GameObject> _falingEntitiesQueue;
+    
     private FallingEntityGenerator _fallingEntityGenerator;
     public GameObject player;
 
-    private List<IEntity> entities;
+    public List<IEntity> entities;
+    public List<GameObject> _falingEntitiesGameObjects;
 
     int fallingObject, collideObject, playerObject;
 
@@ -34,15 +35,19 @@ public class FallingEntities : MonoBehaviour
         collideObject = LayerMask.NameToLayer("Ground");
         playerObject = LayerMask.NameToLayer("Player");
         //making new bomb
-        var fe = Instantiate(bombs[0], Zero.position, Zero.rotation);
+        var entity = _fallingEntityGenerator.GetNext();
+       
+        int id = (int)new EntityAdapter(entity).Id;
+       
+        var fe = Instantiate(bombs[id], Zero.position, Zero.rotation);
         fe.transform.localPosition = new Vector3(-5, 0, 0);
         
 
         //Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
 
-        _falingEntitiesQueue = new List<GameObject>();
-        _falingEntitiesQueue.Add(fe);
-
+        _falingEntitiesGameObjects = new List<GameObject>();
+        _falingEntitiesGameObjects.Add(fe);
+        entities.Add(entity);
 
 
     }
@@ -53,22 +58,26 @@ public class FallingEntities : MonoBehaviour
        // Zero.Translate(new Vector2(Zero.position.x, player.transform.position.y + 20));
         GameObject Removef = null;
         int index = -1;
-        foreach (var item in _falingEntitiesQueue)
+        foreach (var item in _falingEntitiesGameObjects)
         {
             if (Mathf.Abs(player.transform.position.x - item.transform.position.x) < 1f && Mathf.Abs(player.transform.position.y - item.transform.position.y) < 1.23f)
             {
                 
                 Removef = item;
-                index = _falingEntitiesQueue.IndexOf(item);
+                index = _falingEntitiesGameObjects.IndexOf(item);
+               // Debug.Log(index + "\t" + _falingEntitiesGameObjects[index]); Debug.Log(entities[index]);
                 entities[index].Colide(player.GetComponent<PlayerMove>().User);
-               // Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
+                // Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
+                //Debug.Log(item.name);
                 break;             
             }            
         }
         if(Removef != null)
         {
             entities.RemoveAt(index);
-            _falingEntitiesQueue.Remove(Removef);
+            _falingEntitiesGameObjects.Remove(Removef);
+          
+            
             Destroy(Removef);
         }
 
@@ -78,22 +87,24 @@ public class FallingEntities : MonoBehaviour
         Physics2D.IgnoreLayerCollision(fallingObject, collideObject, true);
         Physics2D.IgnoreLayerCollision(fallingObject, playerObject, true);
 
-        if (_falingEntitiesQueue[_falingEntitiesQueue.Count-1].transform.localPosition.y - Zero.position.y < -2)
+        if (_falingEntitiesGameObjects[_falingEntitiesGameObjects.Count-1].transform.localPosition.y - Zero.position.y < -2)
         {
             var entity = _fallingEntityGenerator.GetNext();
             int id = (int)new EntityAdapter(entity).Id;
             var fe = Instantiate(bombs[id], Zero.position, Zero.rotation);
-           
+            Debug.Log(entity); Debug.Log(fe.name); 
             fe.transform.localPosition = new Vector3(Random.Range(-9,9), Zero.position.y + 2, 0);
-            _falingEntitiesQueue.Add(fe);
-            Debug.Log(entity.ColideValue + "\t" + id);
+            _falingEntitiesGameObjects.Add(fe);
+           // Debug.Log(entity.ColideValue + "\t" + id);
             entities.Add(entity);
+            Debug.Log(entities.Count + " \t" + _falingEntitiesGameObjects.Count);
         }
-        if (_falingEntitiesQueue[0].transform.position.y - Zero.position.y < -20)
+        if (_falingEntitiesGameObjects[0].transform.position.y - Zero.position.y < -20)
         {
-            var fed = _falingEntitiesQueue[0];
+            var fed = _falingEntitiesGameObjects[0];
             Destroy(fed);
-            _falingEntitiesQueue.RemoveAt(0);
+            _falingEntitiesGameObjects.RemoveAt(0);
+            entities.RemoveAt(0);
         }
 
 
