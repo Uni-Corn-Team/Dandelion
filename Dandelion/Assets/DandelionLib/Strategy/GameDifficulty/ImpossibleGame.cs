@@ -24,7 +24,7 @@ namespace DandelionLib.Strategy.GameDifficulty
                 }
                 if (NumSet.IsIn(50, 100, rndNum))
                 {
-                    queue.Enqueue(new FallingUltimateBomb(100));
+                    queue.Enqueue(new FallingUltimateBomb(10));
                 }
             }
             return queue;

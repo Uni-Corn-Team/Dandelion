@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4400220722507423229}
   - component: {fileID: 8981543584403546702}
   - component: {fileID: 8893730210972150756}
-  - component: {fileID: 5674408308294421149}
+  - component: {fileID: -8790844543482013098}
   m_Layer: 10
-  m_Name: Bomb 6
+  m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +29,9 @@ Transform:
   m_GameObject: {fileID: 3073877690800835306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
-  - {fileID: 4655376256121113881}
+  - {fileID: 8293727518272374600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a2d68081d156f704bb974b65c4ba11c6, type: 3}
-  m_Color: {r: 0.26379493, g: 0.9180791, b: 0.9811321, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5535b134ce1a68643b413545dacd09a4, type: 3}
+  m_Color: {r: 0.19607843, g: 1, b: 0.30588236, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,9 +99,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.16227539}
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.3984037
 --- !u!50 &8893730210972150756
 Rigidbody2D:
   serializedVersion: 4
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5674408308294421149
+--- !u!114 &-8790844543482013098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   direction: {x: 0, y: -10}
---- !u!1 &6145841930316626513
+--- !u!1 &7820265004448911671
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4655376256121113881}
+  - component: {fileID: 8293727518272374600}
   m_Layer: 10
   m_Name: playerChecked
   m_TagString: playerCheck
@@ -153,15 +153,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4655376256121113881
+--- !u!4 &8293727518272374600
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6145841930316626513}
+  m_GameObject: {fileID: 7820265004448911671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.76, z: 0}
+  m_LocalPosition: {x: 0, y: -0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2025848187000820516}

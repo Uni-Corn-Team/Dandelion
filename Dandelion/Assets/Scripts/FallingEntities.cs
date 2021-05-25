@@ -28,16 +28,17 @@ public class FallingEntities : MonoBehaviour
     void Start()
     {
         entities = new List<IEntity>();
-        _fallingEntityGenerator = new FallingEntityGenerator(new HardGame());
+        _fallingEntityGenerator = new FallingEntityGenerator(new ImpossibleGame());
 
         fallingObject = LayerMask.NameToLayer("FallingEntity");
         collideObject = LayerMask.NameToLayer("Ground");
         playerObject = LayerMask.NameToLayer("Player");
         //making new bomb
-        var fe = Instantiate(bombs[0], Zero);
+        var fe = Instantiate(bombs[0], Zero.position, Zero.rotation);
         fe.transform.localPosition = new Vector3(-5, 0, 0);
+        
 
-        Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
+        //Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
 
         _falingEntitiesQueue = new List<GameObject>();
         _falingEntitiesQueue.Add(fe);
@@ -60,7 +61,7 @@ public class FallingEntities : MonoBehaviour
                 Removef = item;
                 index = _falingEntitiesQueue.IndexOf(item);
                 entities[index].Colide(player.GetComponent<PlayerMove>().User);
-                Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
+               // Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
                 break;             
             }            
         }
@@ -82,8 +83,10 @@ public class FallingEntities : MonoBehaviour
             var entity = _fallingEntityGenerator.GetNext();
             int id = (int)new EntityAdapter(entity).Id;
             var fe = Instantiate(bombs[id], Zero.position, Zero.rotation);
+           
             fe.transform.localPosition = new Vector3(Random.Range(-9,9), Zero.position.y + 2, 0);
             _falingEntitiesQueue.Add(fe);
+            Debug.Log(entity.ColideValue + "\t" + id);
             entities.Add(entity);
         }
         if (_falingEntitiesQueue[0].transform.position.y - Zero.position.y < -20)

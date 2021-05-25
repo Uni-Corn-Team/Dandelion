@@ -78,7 +78,7 @@ public class CameraController : MonoBehaviour
 
     public void FindPlayer(bool playerIsLeft)
     {
-       /* player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         lastX = Mathf.RoundToInt(player.position.x);
         if(playerIsLeft)
         {
@@ -87,7 +87,7 @@ public class CameraController : MonoBehaviour
         else
         {
             transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
-        }*/
+        }
 
        
     }
