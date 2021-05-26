@@ -14,7 +14,7 @@ public class FallingEntities : MonoBehaviour
     private FallingEntityGenerator _fallingEntityGenerator;
     public GameObject player;
 
-    public List<IEntity> entities;
+    private List<IUnityEntityObject> entities;
     public List<GameObject> _falingEntitiesGameObjects;
 
     int fallingObject, collideObject, playerObject;
@@ -28,26 +28,21 @@ public class FallingEntities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        entities = new List<IEntity>();
-        _fallingEntityGenerator = new FallingEntityGenerator(new ImpossibleGame());
+        entities = new List<IUnityEntityObject>();
+        _fallingEntityGenerator = new FallingEntityGenerator(new NormalGame());
 
         fallingObject = LayerMask.NameToLayer("FallingEntity");
         collideObject = LayerMask.NameToLayer("Ground");
         playerObject = LayerMask.NameToLayer("Player");
         //making new bomb
-        var entity = _fallingEntityGenerator.GetNext();
-       
-        int id = (int)new EntityAdapter(entity).Id;
-       
+        //var entity = _fallingEntityGenerator.GetNext();
+        var iUnityEntity = new EntityAdapter(_fallingEntityGenerator.GetNext());
+        int id = (int)iUnityEntity.Id;
         var fe = Instantiate(bombs[id], Zero.position, Zero.rotation);
-        fe.transform.localPosition = new Vector3(-5, 0, 0);
-        
-
-        //Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
-
+        fe.transform.localPosition = new Vector3(-15, 0, 0);             
         _falingEntitiesGameObjects = new List<GameObject>();
         _falingEntitiesGameObjects.Add(fe);
-        entities.Add(entity);
+        entities.Add(iUnityEntity);
 
 
     }
@@ -55,7 +50,7 @@ public class FallingEntities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Zero.Translate(new Vector2(Zero.position.x, player.transform.position.y + 20));
+       
         GameObject Removef = null;
         int index = -1;
         foreach (var item in _falingEntitiesGameObjects)
@@ -65,10 +60,9 @@ public class FallingEntities : MonoBehaviour
                 
                 Removef = item;
                 index = _falingEntitiesGameObjects.IndexOf(item);
-               // Debug.Log(index + "\t" + _falingEntitiesGameObjects[index]); Debug.Log(entities[index]);
+            
                 entities[index].Colide(player.GetComponent<PlayerMove>().User);
-                // Debug.Log(player.GetComponent<PlayerMove>().User.CureentHealth);
-                //Debug.Log(item.name);
+               
                 break;             
             }            
         }
@@ -89,15 +83,15 @@ public class FallingEntities : MonoBehaviour
 
         if (_falingEntitiesGameObjects[_falingEntitiesGameObjects.Count-1].transform.localPosition.y - Zero.position.y < -2)
         {
-            var entity = _fallingEntityGenerator.GetNext();
-            int id = (int)new EntityAdapter(entity).Id;
+            var iUnityEntity = new EntityAdapter(_fallingEntityGenerator.GetNext());
+            int id = (int)iUnityEntity.Id;
             var fe = Instantiate(bombs[id], Zero.position, Zero.rotation);
-            Debug.Log(entity); Debug.Log(fe.name); 
+         
             fe.transform.localPosition = new Vector3(Random.Range(-9,9), Zero.position.y + 2, 0);
             _falingEntitiesGameObjects.Add(fe);
-           // Debug.Log(entity.ColideValue + "\t" + id);
-            entities.Add(entity);
-            Debug.Log(entities.Count + " \t" + _falingEntitiesGameObjects.Count);
+          
+            entities.Add(iUnityEntity);
+           
         }
         if (_falingEntitiesGameObjects[0].transform.position.y - Zero.position.y < -20)
         {

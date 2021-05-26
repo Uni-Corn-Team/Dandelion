@@ -83,7 +83,7 @@ public class PlayerMove : MonoBehaviour
             Debug.LogWarning("***");
         }
        
-        if(rigidbody2D.velocity.y == 0 && Input.GetButtonDown("Vertical"))
+        if(rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))
             Jump();
       
 

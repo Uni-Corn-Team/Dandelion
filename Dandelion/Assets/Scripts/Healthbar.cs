@@ -2,6 +2,7 @@ using DandelionLib;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
@@ -28,7 +29,15 @@ public class Healthbar : MonoBehaviour
 
         if(Fill == 0)
         {
-            Debug.LogWarning($"{this}: THERE IS DEATH TIME");
+            StartCoroutine(WaiterDeath());
+            
         }
+    }
+
+    IEnumerator WaiterDeath()
+    {
+        
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Death");
     }
 }

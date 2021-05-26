@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GeneratePlatforms : MonoBehaviour
 {
@@ -43,7 +44,8 @@ public class GeneratePlatforms : MonoBehaviour
         }
         if(Player.transform.position.y < _deathline - 5)
         {
-            Debug.LogWarning($"{this}: THERE IS DEATH TIME");
+            StartCoroutine(WaiterDeath());
+            
         }
     }
 
@@ -69,5 +71,13 @@ public class GeneratePlatforms : MonoBehaviour
         {
             _deathline = _lastUpdateCameraPosition.y - 20;
         }
+    }
+
+
+    IEnumerator WaiterDeath()
+    {
+      
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Death");
     }
 }
