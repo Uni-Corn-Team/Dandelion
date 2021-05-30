@@ -59,14 +59,21 @@ public class GeneratePlatforms : MonoBehaviour
 
     private void GeneratePlatformes()
     {
-        for (int k = 0; k < Random.Range(1, 3); k++)
+        if (_lastZeroPosition.y - Camera.transform.position.y < 20)
         {
-            int num = 8;
-            float i = _lastZeroPosition.x + Random.Range(-num, num);
-            _lastZeroPosition.x = (i < -num) ? i + num : (i > num) ? i - num : i;
-            Generate(i, _lastZeroPosition.y + Random.Range(-1, 1));
+            for (int k = 0; k < Random.Range(1, 3); k++)
+            {
+                int num = 8;
+                float i = _lastZeroPosition.x + Random.Range(-num, num);
+                _lastZeroPosition.x = (i < -num) ? i + num : (i > num) ? i - num : i;
+                Generate(i, _lastZeroPosition.y + Random.Range(-1, 1));
+            }
+
+
+            _lastZeroPosition.y += Random.Range(2, 3);
         }
-        _lastZeroPosition.y += Random.Range(2, 3);
+
+
         if (_lastUpdateCameraPosition.y - 25 > _deathline)
         {
             _deathline = _lastUpdateCameraPosition.y - 20;
