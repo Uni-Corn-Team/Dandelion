@@ -20,7 +20,7 @@ public class Healthbar : MonoBehaviour
     private Color liteYellow;
     private Color liteGreen;
 
-    private int maxhight;
+    public static int maxhight;
 
     // Start is called before the first frame update
     void Start()
