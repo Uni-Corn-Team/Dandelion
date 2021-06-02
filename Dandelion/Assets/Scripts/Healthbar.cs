@@ -1,6 +1,5 @@
 using DandelionLib;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -40,7 +39,6 @@ public class Healthbar : MonoBehaviour
     void Update()
     {
         Fill = UserBar.HealthBarPercents;
-        //Debug.LogWarning($"HB: {Fill}");
         Bar.fillAmount = Fill;
         if(Bar.fillAmount <= 0.7f)
         {
@@ -76,13 +74,11 @@ public class Healthbar : MonoBehaviour
         if(Fill == 0)
         {
             StartCoroutine(WaiterDeath());
-            
         }
     }
 
     IEnumerator WaiterDeath()
     {
-        
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Death");
     }

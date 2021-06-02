@@ -10,7 +10,6 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
 
-
     public Transform groundCheck;
 
     public DandelionLib.User User;
@@ -20,7 +19,6 @@ public class PlayerMove : MonoBehaviour
 
     public float leftBorder, rightBorder;
 
-   
     public GameObject player;
     public GameObject healthbar;
 
@@ -40,8 +38,6 @@ public class PlayerMove : MonoBehaviour
         User = new DandelionLib.User(100, 100);
         leftBorder = -12f;
         rightBorder = 12f;
-
-
     }
     
     private void Run()
@@ -57,22 +53,15 @@ public class PlayerMove : MonoBehaviour
          rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
-   
-
-
-
     private void FixedUpdate()
     {
-       
         if (Input.GetButton("Horizontal"))
             Run();
-
-
     }
+
     // Update is called once per frame
     void Update()
     {
-      
         if(UserBar == null)
         {
             UserBar = healthbar.GetComponent<Healthbar>().UserBar;
@@ -81,7 +70,6 @@ public class PlayerMove : MonoBehaviour
        
         if(rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))
             Jump();
-      
 
         if(rigidbody2D.velocity.y > 0)
         {
@@ -91,7 +79,5 @@ public class PlayerMove : MonoBehaviour
         {
             Physics2D.IgnoreLayerCollision(playerObject, collideObject, false);
         }
-
-      
     }
 }

@@ -29,9 +29,7 @@ public class FallingEntities : MonoBehaviour
         entities = new List<IUnityEntityObject>();
 
         IGameDifficulty gameDifficulty;
-        Debug.Log("Hello");
         DifficultyType type = SettingsMenu.currentDiffucultyType;
-        Debug.Log(type);
         switch (type)
         {
             case DifficultyType.EasyGame:
@@ -52,7 +50,6 @@ public class FallingEntities : MonoBehaviour
         }
 
         _fallingEntityGenerator = new FallingEntityGenerator(gameDifficulty);
-        Debug.Log(gameDifficulty.GetType());
 
         fallingObject = LayerMask.NameToLayer("FallingEntity");
         collideObject = LayerMask.NameToLayer("Ground");
@@ -73,7 +70,6 @@ public class FallingEntities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
         GameObject Removef = null;
         int index = -1;
         foreach (var item in _falingEntitiesGameObjects)
@@ -81,7 +77,6 @@ public class FallingEntities : MonoBehaviour
             if (Mathf.Abs(player.transform.position.x - item.transform.position.x) < 1f
                 && Mathf.Abs(player.transform.position.y - item.transform.position.y) < 1.23f)
             {
-                
                 Removef = item;
                 index = _falingEntitiesGameObjects.IndexOf(item);
             
@@ -94,13 +89,9 @@ public class FallingEntities : MonoBehaviour
         {
             entities.RemoveAt(index);
             _falingEntitiesGameObjects.Remove(Removef);
-          
             
             Destroy(Removef);
         }
-
-
-
 
         Physics2D.IgnoreLayerCollision(fallingObject, collideObject, true);
         Physics2D.IgnoreLayerCollision(fallingObject, playerObject, true);
@@ -116,7 +107,6 @@ public class FallingEntities : MonoBehaviour
             _falingEntitiesGameObjects.Add(fe);
           
             entities.Add(iUnityEntity);
-           
         }
         if (_falingEntitiesGameObjects[0].transform.position.y - Zero.position.y < -20)
         {
@@ -125,7 +115,5 @@ public class FallingEntities : MonoBehaviour
             _falingEntitiesGameObjects.RemoveAt(0);
             entities.RemoveAt(0);
         }
-
-
     }
 }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -22,6 +19,7 @@ public class CameraController : MonoBehaviour
     float bottomLimit;
     [SerializeField]
     float upperLimit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,11 +67,10 @@ public class CameraController : MonoBehaviour
             transform.position = currentPosition;
         }
 
-        transform.position = new Vector3
-            (
-                Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
-               transform.position.y,// Mathf.Clamp(transform.position.x, bottomLimit, upperLimit),
-                transform.position.z);
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+            transform.position.y,// Mathf.Clamp(transform.position.x, bottomLimit, upperLimit),
+            transform.position.z);
     }
 
     public void FindPlayer(bool playerIsLeft)
@@ -88,7 +85,5 @@ public class CameraController : MonoBehaviour
         {
             transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
         }
-
-       
     }
 }

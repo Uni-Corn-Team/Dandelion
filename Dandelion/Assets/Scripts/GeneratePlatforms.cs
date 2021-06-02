@@ -45,7 +45,6 @@ public class GeneratePlatforms : MonoBehaviour
         if(Player.transform.position.y < _deathline - 5)
         {
             StartCoroutine(WaiterDeath());
-            
         }
     }
 
@@ -69,10 +68,8 @@ public class GeneratePlatforms : MonoBehaviour
                 Generate(i, _lastZeroPosition.y + Random.Range(-1, 1));
             }
 
-
             _lastZeroPosition.y += Random.Range(2, 3);
         }
-
 
         if (_lastUpdateCameraPosition.y - 25 > _deathline)
         {
@@ -80,10 +77,8 @@ public class GeneratePlatforms : MonoBehaviour
         }
     }
 
-
     IEnumerator WaiterDeath()
     {
-      
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Death");
     }

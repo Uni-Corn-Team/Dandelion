@@ -1,11 +1,6 @@
-﻿
-using DandelionLib.Entities.FallingEntities;
+﻿using DandelionLib.Entities.FallingEntities;
 using DandelionLib.Statics;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DandelionLib.Strategy.GameDifficulty
 {
@@ -24,7 +19,7 @@ namespace DandelionLib.Strategy.GameDifficulty
                 }
                 if (NumSet.IsIn(50, 100, rndNum))
                 {
-                    queue.Enqueue(new FallingUltimateBomb(10));
+                    queue.Enqueue(new FallingUltimateBomb(100));
                 }
             }
             return queue;

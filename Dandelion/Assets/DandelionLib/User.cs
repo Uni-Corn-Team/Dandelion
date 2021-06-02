@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DandelionLib
 {
@@ -42,13 +38,12 @@ namespace DandelionLib
             }
 
             NotifyObservers(
-    new UserNotifyObserversContract
-    {
-        CurrentHealth = _currentHealth,
-        CurrentHight = _currentHight,
-        MaxHealth = _maxHealth
-    }
-    );
+                new UserNotifyObserversContract
+                {
+                    CurrentHealth = _currentHealth,
+                    CurrentHight = _currentHight,
+                    MaxHealth = _maxHealth
+                });
         }
 
         public void DeleteObserver(IObserver observer)
