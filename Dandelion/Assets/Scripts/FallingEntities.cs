@@ -5,6 +5,7 @@ using DandelionLib.Strategy;
 using DandelionLib.Strategy.GameDifficulty;
 using DandelionLib;
 using DandelionLib.Entities;
+using Assets.DandelionLib.Enums;
 
 public class FallingEntities : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class FallingEntities : MonoBehaviour
 
     int fallingObject, collideObject, playerObject;
 
-
     //for collide bombs
     public LayerMask whatIsPlayer;
     private bool isTriggered;
@@ -29,7 +29,32 @@ public class FallingEntities : MonoBehaviour
     void Start()
     {
         entities = new List<IUnityEntityObject>();
-        _fallingEntityGenerator = new FallingEntityGenerator(new NormalGame());
+
+        IGameDifficulty gameDifficulty;
+        Debug.Log("Hello");
+        DifficultyType type = SettingsMenu.currentDiffucultyType;
+        Debug.Log(type);
+        switch (type)
+        {
+            case DifficultyType.EasyGame:
+                gameDifficulty = new EasyGame();
+                break;
+            case DifficultyType.NormalGame:
+                gameDifficulty = new NormalGame();
+                break;
+            case DifficultyType.HardGame:
+                gameDifficulty = new HardGame();
+                break;
+            case DifficultyType.ImpossibleGame:
+                gameDifficulty = new ImpossibleGame();
+                break;
+            default:
+                gameDifficulty = new NormalGame();
+                break;
+        }
+
+        _fallingEntityGenerator = new FallingEntityGenerator(gameDifficulty);
+        Debug.Log(gameDifficulty.GetType());
 
         fallingObject = LayerMask.NameToLayer("FallingEntity");
         collideObject = LayerMask.NameToLayer("Ground");
@@ -44,7 +69,7 @@ public class FallingEntities : MonoBehaviour
         _falingEntitiesGameObjects.Add(fe);
         entities.Add(iUnityEntity);
 
-
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -55,7 +80,8 @@ public class FallingEntities : MonoBehaviour
         int index = -1;
         foreach (var item in _falingEntitiesGameObjects)
         {
-            if (Mathf.Abs(player.transform.position.x - item.transform.position.x) < 1f && Mathf.Abs(player.transform.position.y - item.transform.position.y) < 1.23f)
+            if (Mathf.Abs(player.transform.position.x - item.transform.position.x) < 1f
+                && Mathf.Abs(player.transform.position.y - item.transform.position.y) < 1.23f)
             {
                 
                 Removef = item;
@@ -81,7 +107,8 @@ public class FallingEntities : MonoBehaviour
         Physics2D.IgnoreLayerCollision(fallingObject, collideObject, true);
         Physics2D.IgnoreLayerCollision(fallingObject, playerObject, true);
 
-        if (_falingEntitiesGameObjects[_falingEntitiesGameObjects.Count-1].transform.localPosition.y - Zero.position.y < -2)
+        if (_falingEntitiesGameObjects[_falingEntitiesGameObjects.Count-1]
+            .transform.localPosition.y - Zero.position.y < -2)
         {
             var iUnityEntity = new EntityAdapter(_fallingEntityGenerator.GetNext());
             int id = (int)iUnityEntity.Id;

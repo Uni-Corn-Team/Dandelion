@@ -77,7 +77,6 @@ public class PlayerMove : MonoBehaviour
         {
             UserBar = healthbar.GetComponent<Healthbar>().UserBar;
             User.AddObserver(UserBar);
-            Debug.LogWarning("***");
         }
        
         if(rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))

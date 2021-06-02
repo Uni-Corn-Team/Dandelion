@@ -1,5 +1,6 @@
-using System.Collections;
+using Assets.DandelionLib.Enums;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -12,7 +13,10 @@ public class SettingsMenu : MonoBehaviour
     public Dropdown dropdown;
     public bool isFullScreen;
     public GameObject FSToggle;
-    public GameObject DropDownText;
+    public Dropdown difficultyDropdown;
+    List<string> difficultyTypes;
+
+    public static DifficultyType currentDiffucultyType = DifficultyType.NormalGame;
 
     public void Awake()
     {
@@ -33,6 +37,16 @@ public class SettingsMenu : MonoBehaviour
         dropdown.ClearOptions();
         dropdown.AddOptions(resolutions);
 
+        difficultyTypes = new List<string>();
+        difficultyTypes.Add(nameof(DifficultyType.EasyGame));
+        difficultyTypes.Add(nameof(DifficultyType.NormalGame));
+        difficultyTypes.Add(nameof(DifficultyType.HardGame));
+        difficultyTypes.Add(nameof(DifficultyType.ImpossibleGame));
+
+        difficultyDropdown.ClearOptions();
+        difficultyDropdown.AddOptions(difficultyTypes);
+
+        DontDestroyOnLoad(this);
     }
 
     public void FullScreenToggle()
@@ -48,7 +62,11 @@ public class SettingsMenu : MonoBehaviour
 
     public void Resolution(int r)
     {
-        Debug.Log("rsl[r].width " + rsl[r].width  + " rsl[r].height " +  rsl[r].height  +" " + isFullScreen);
         Screen.SetResolution(rsl[r].width, rsl[r].height, isFullScreen);
+    }
+
+    public void Difficulty(int r)
+    {
+        currentDiffucultyType = (DifficultyType)r;
     }
 }

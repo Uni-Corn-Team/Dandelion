@@ -1,6 +1,6 @@
 ﻿namespace Assets.DandelionLib.Enums
 {
-    enum DifficultyType
+    public enum DifficultyType
     {
         EasyGame,
         NormalGame,

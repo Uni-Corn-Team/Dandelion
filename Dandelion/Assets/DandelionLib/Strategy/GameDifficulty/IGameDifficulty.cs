@@ -10,6 +10,5 @@ namespace DandelionLib.Strategy.GameDifficulty
     interface IGameDifficulty
     {
         Queue<IFallingEntity> GetFallingEntitiesQueue(int size);
-
     }
 }
