@@ -7,6 +7,16 @@ public class MenuControls : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void Awake()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        Screen.orientation = ScreenOrientation.LandscapeRight;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+#endif
+    }
+
     public void ExitPressed()
     {
         Application.Quit();

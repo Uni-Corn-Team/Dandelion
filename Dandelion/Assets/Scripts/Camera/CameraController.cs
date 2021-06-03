@@ -8,7 +8,11 @@ public class CameraController : MonoBehaviour
     private Transform player;
     private int lastX;
     public GameObject CanvasPause;
+    public GameObject CanvasPauseMobile;
     public bool IsPaused = false;
+
+    public GameObject bar;
+    public GameObject pause;
 
     //limits
     [SerializeField]
@@ -26,7 +30,21 @@ public class CameraController : MonoBehaviour
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
         Time.timeScale = 1;
         IsPaused = false;
-        FindPlayer(isLeft); 
+        FindPlayer(isLeft);
+
+#if UNITY_ANDROID || UNITY_IOS
+        var resolution = Screen.currentResolution;
+        pause.SetActive(true);
+        bar.transform.localScale = new Vector3(5f, 5f, 3f);
+        bar.transform.localPosition = new Vector3(
+            (float)(-0.35 * resolution.width),
+            (float)(0.35 * resolution.height),
+            bar.transform.localPosition.z);
+        pause.transform.localPosition = new Vector3(
+            (float)(0.45 * resolution.width),
+            (float)(0.4 * resolution.height),
+            bar.transform.localPosition.z);
+#endif
     }
 
     // Update is called once per frame
@@ -85,5 +103,17 @@ public class CameraController : MonoBehaviour
         {
             transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
         }
+    }
+
+    public void SetPause()
+    {
+#if UNITY_STANDALONE
+        CanvasPause.SetActive(true);
+#endif
+#if UNITY_ANDROID || UNITY_IOS
+        CanvasPauseMobile.SetActive(true);
+#endif
+        Time.timeScale = 0;
+        IsPaused = true;
     }
 }

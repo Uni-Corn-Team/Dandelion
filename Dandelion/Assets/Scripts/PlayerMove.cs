@@ -52,10 +52,46 @@ public class PlayerMove : MonoBehaviour
     
     private void Run()
     {
+#if UNITY_STANDALONE
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
 
         transform.position = new Vector3(Mathf.Clamp(Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime).x, leftBorder, rightBorder), transform.position.y, transform.position.z);
         spriteRenderer.flipX = dir.x < 0.0f;
+#endif
+
+#if UNITY_ANDROID || UNITY_IOS
+        if (Input.touchCount > 0)
+        {
+            Touch myTouch = Input.GetTouch(0);
+            Vector2 positionOnScreen = myTouch.position;
+
+            var center = Screen.currentResolution.width / 2;
+            Vector3 dir = transform.right;
+            if (myTouch.position.x < center)
+            {
+                dir *= -5;
+                Debug.Log("left");
+            }
+            else
+            {
+                dir *= 5;
+                Debug.Log("right");
+            }
+
+            transform.position = new Vector3(Mathf.Clamp(
+                Vector3.MoveTowards(
+                    transform.position,
+                    transform.position + dir,
+                    speed * Time.deltaTime).x,
+                leftBorder, rightBorder),
+               transform.position.y,
+               transform.position.z);
+
+            spriteRenderer.flipX = dir.x < 0.0f;
+
+            Debug.Log(positionOnScreen);
+        }
+#endif
     }
 
     private void Jump()
@@ -67,6 +103,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (!animator.GetBool("IsDead"))
         {
+#if UNITY_STANDALONE
             if (Input.GetButton("Horizontal"))
             {
                 animator.SetFloat("Speed", 1);
@@ -76,6 +113,11 @@ public class PlayerMove : MonoBehaviour
             {
                 animator.SetFloat("Speed", 0);
             }
+#endif
+
+#if UNITY_ANDROID || UNITY_IOS
+            Run();
+#endif
         }
     }
 
@@ -90,10 +132,19 @@ public class PlayerMove : MonoBehaviour
                 User.AddObserver(UserBar);
             }
 
+#if UNITY_STANDALONE
             if (rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))
             {
                 Jump();
             }
+#endif
+
+#if UNITY_ANDROID || UNITY_IOS
+            if (rigidbody2D.velocity.y == 0)
+            {
+                Jump();
+            }
+#endif
 
             if (rigidbody2D.velocity.y == 0)
             {
