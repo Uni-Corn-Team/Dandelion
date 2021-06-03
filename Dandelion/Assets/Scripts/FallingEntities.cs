@@ -4,6 +4,7 @@ using DandelionLib.Strategy;
 using DandelionLib.Strategy.GameDifficulty;
 using DandelionLib;
 using Assets.DandelionLib.Enums;
+using Assets.DandelionLib.Enums.EnumsConverters;
 
 public class FallingEntities : MonoBehaviour
 {
@@ -30,24 +31,8 @@ public class FallingEntities : MonoBehaviour
 
         IGameDifficulty gameDifficulty;
         DifficultyType type = SettingsMenu.currentDiffucultyType;
-        switch (type)
-        {
-            case DifficultyType.EasyGame:
-                gameDifficulty = new EasyGame();
-                break;
-            case DifficultyType.NormalGame:
-                gameDifficulty = new NormalGame();
-                break;
-            case DifficultyType.HardGame:
-                gameDifficulty = new HardGame();
-                break;
-            case DifficultyType.ImpossibleGame:
-                gameDifficulty = new ImpossibleGame();
-                break;
-            default:
-                gameDifficulty = new NormalGame();
-                break;
-        }
+
+        gameDifficulty = DifficultyTypeConverter.ToIGameDifficulty(type);
 
         _fallingEntityGenerator = new FallingEntityGenerator(gameDifficulty);
 
@@ -80,7 +65,7 @@ public class FallingEntities : MonoBehaviour
                 Removef = item;
                 index = _falingEntitiesGameObjects.IndexOf(item);
             
-                entities[index].Colide(player.GetComponent<PlayerMove>().User);
+                entities[index].Colide(player.GetComponent<PlayerMove>().user);
                
                 break;             
             }            

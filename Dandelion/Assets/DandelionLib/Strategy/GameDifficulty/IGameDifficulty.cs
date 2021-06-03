@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DandelionLib.Strategy.GameDifficulty
 {
-    interface IGameDifficulty
+    public interface IGameDifficulty
     {
         Queue<IFallingEntity> GetFallingEntitiesQueue(int size);
     }

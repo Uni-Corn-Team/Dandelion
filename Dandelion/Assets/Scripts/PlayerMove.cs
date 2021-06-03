@@ -7,27 +7,26 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private int lives = 5;
     [SerializeField] private float jumpForce = 10f;
 
-    public Animator animator;
-
     private new Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
+    private UserBar userBar;
 
+    public Animator animator;
     public Transform groundCheck;
-
-    public DandelionLib.User User;
+    public User user;
     
     public float checkRadius;
     public LayerMask whatIsGround;
 
-    public float leftBorder, rightBorder;
+    public float leftBorder;
+    public float rightBorder;
 
     public GameObject player;
     public GameObject healthbar;
 
     //for jumping through platforms
-    int playerObject, collideObject;
-
-    private UserBar UserBar;
+    int playerObject;
+    int collideObject;
 
     private void Awake()
     {
@@ -39,7 +38,7 @@ public class PlayerMove : MonoBehaviour
         playerObject = LayerMask.NameToLayer("Player");
         collideObject = LayerMask.NameToLayer("Ground");
 
-        User = new DandelionLib.User(100, 100);
+        user = new DandelionLib.User(100, 100);
 
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0)); // bottom-left corner
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1)); // top-right corner
@@ -84,10 +83,10 @@ public class PlayerMove : MonoBehaviour
     {
         if (!animator.GetBool("IsDead"))
         {
-            if (UserBar == null)
+            if (userBar == null)
             {
-                UserBar = healthbar.GetComponent<Healthbar>().UserBar;
-                User.AddObserver(UserBar);
+                userBar = healthbar.GetComponent<Healthbar>().UserBar;
+                user.AddObserver(userBar);
             }
 
             if (rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))

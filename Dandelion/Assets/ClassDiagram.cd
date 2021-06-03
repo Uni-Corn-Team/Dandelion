@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Assets.DandelionLib.Data.Record">
+    <Position X="56.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAgAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Data\Record.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.DandelionLib.Data.RecordTable">
+    <Position X="56.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAIAAAAAAAAAAAEBAEAABAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Data\RecordTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DandelionLib.Entities.EntitiesFactory.FallingBombFactory" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="16" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\EntitiesFactory\FallingBombFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.Entities.EntitiesFactory.FallingHealthFactory" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="16" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\EntitiesFactory\FallingHealthFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingBomb">
+    <Position X="4.5" Y="7.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingBomb.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingHealth">
+    <Position X="14.5" Y="7.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingHealth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingLargeBomb" Collapsed="true">
+    <Position X="1.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingLargeBomb.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingLargeHealth" Collapsed="true">
+    <Position X="14.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingLargeHealth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingLittleBomb" Collapsed="true">
+    <Position X="4" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingLittleBomb.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingLittleHealth" Collapsed="true">
+    <Position X="16.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingLittleHealth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingMiddleBomb" Collapsed="true">
+    <Position X="6.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingMiddleBomb.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingMiddleHealth" Collapsed="true">
+    <Position X="19" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingMiddleHealth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingUltimateBomb" Collapsed="true">
+    <Position X="8.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingUltimateBomb.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.Entities.FallingEntities.FallingUltimateHeath" Collapsed="true">
+    <Position X="12.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\FallingUltimateHeath.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DandelionLib.EntityAdapter" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="3.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAABAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\EntityAdapter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.User" BaseTypeListCollapsed="true">
+    <Position X="24" Y="7.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAABAAAAAAAAAAhAgAAAAAABCAAAAAAAgCAA=</HashCode>
+      <FileName>Assets\DandelionLib\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.UserBar" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAAAAACAAAAAAAAAAAAAAAAAECABAAAAAkAAA=</HashCode>
+      <FileName>Assets\DandelionLib\UserBar.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.UserNotifyObserversContract">
+    <Position X="34" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAEAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\UserNotifyObserversContract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DandelionLib.Statics.NumSet">
+    <Position X="51" Y="6" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Statics\NumSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DandelionLib.Statics.Rnd">
+    <Position X="51.25" Y="9" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Statics\Rnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DandelionLib.Strategy.FallingEntityGenerator" BaseTypeListCollapsed="true">
+    <Position X="23.75" Y="16" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAQAAAgAAAAAQAAAAIAAAAAAAADAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Strategy\FallingEntityGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.Strategy.GameDifficulty.EasyGame" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="22.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Strategy\GameDifficulty\EasyGame.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.Strategy.GameDifficulty.HardGame" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="27" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Strategy\GameDifficulty\HardGame.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.Strategy.GameDifficulty.ImpossibleGame" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="29.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Strategy\GameDifficulty\ImpossibleGame.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DandelionLib.Strategy.GameDifficulty.NormalGame" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="24.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Strategy\GameDifficulty\NormalGame.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BG">
+    <Position X="41.5" Y="18" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAiAAAAAAAAAAAAAQAAAAAUABAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Background\BG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraController">
+    <Position X="46.75" Y="18" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AASAAIBCACQAAIAAAAgAAAAAAAEAIAABAAAoAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Camera\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOver">
+    <Position X="41.25" Y="26.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAIAAAAAAAAAAAAgAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Death\GameOver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FallingEntities">
+    <Position X="53.5" Y="18" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>gEQAAAAAACAAAAACAAIBQAAAAQAAAQAFAEAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\FallingEntities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FallingEntitiesMove">
+    <Position X="59.75" Y="18" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIiAAIAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\FallingEntitiesMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeneratePlatforms">
+    <Position X="47" Y="26.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAACQZAAAAAAAAAABAAQAAAAAAAAAAAUQAAAA=</HashCode>
+      <FileName>Assets\Scripts\GeneratePlatforms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Healthbar">
+    <Position X="59.75" Y="27" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQCIAAAAKgAAAAAACAAAADAAAAAGBAABAAAAAMAAAA=</HashCode>
+      <FileName>Assets\Scripts\Healthbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuControls">
+    <Position X="53.75" Y="35" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\MenuControls.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenuControls">
+    <Position X="53.75" Y="27" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Menu\PauseMenuControls.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingsMenu">
+    <Position X="59.75" Y="35" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAgKIRAAAAABAAgCAAAgAAAIQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Menu\SettingsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Platform">
+    <Position X="41.5" Y="35" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAiAAAAAAAAABAAACEAAAAAAFAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Platform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMove">
+    <Position X="46.75" Y="35" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>hAQAACAAMgAAACACAAAIAAAAAAIAAUAFABAAAAAAAUI=</HashCode>
+      <FileName>Assets\Scripts\PlayerMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.DandelionLib.Enums.EnumsConverters.DifficultyTypeConverter">
+    <Position X="44.25" Y="9.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Enums\EnumsConverters\DifficultyTypeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DandelionLib.Entities.EntitiesFactory.IEntityFactory">
+    <Position X="11" Y="19" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\EntitiesFactory\IEntityFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Entities.FallingEntities.IFallingEntity">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\FallingEntities\IFallingEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Entities.IEntity">
+    <Position X="10.25" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\IEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Entities.ILargeEntity">
+    <Position X="4.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\ILargeEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Entities.ILittleEntity">
+    <Position X="8.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\ILittleEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Entities.IMiddleEntity">
+    <Position X="13.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\IMiddleEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Entities.IUltimateEntity">
+    <Position X="17" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Entities\IUltimateEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.ICanColideWithEntity">
+    <Position X="24.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\ICanColideWithEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.IObservable">
+    <Position X="34" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAAAAAAgCAA=</HashCode>
+      <FileName>Assets\DandelionLib\IObservable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.IObserver">
+    <Position X="29.75" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\IObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.IUnityEntityObject">
+    <Position X="20.5" Y="3.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\IUnityEntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Strategy.IEntityGenerator">
+    <Position X="24" Y="12.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAgAAAAAQAAAAIAAAAAAAADAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Strategy\IEntityGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DandelionLib.Strategy.GameDifficulty.IGameDifficulty">
+    <Position X="23.75" Y="20.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Strategy\GameDifficulty\IGameDifficulty.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Assets.DandelionLib.Enums.DifficultyType">
+    <Position X="44.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAgAAAAEAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\DandelionLib\Enums\DifficultyType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DandelionLib.Enums.EntityType">
+    <Position X="47.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAAAAAAAABAAIAAAAAAQAAACIAAAAAAAAAACAAAgA=</HashCode>
+      <FileName>Assets\DandelionLib\Enums\EntityType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

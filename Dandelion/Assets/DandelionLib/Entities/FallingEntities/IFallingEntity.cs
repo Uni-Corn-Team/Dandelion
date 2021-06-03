@@ -1,6 +1,6 @@
 ﻿namespace DandelionLib.Entities.FallingEntities
 {
-    interface IFallingEntity: IEntity
+    public interface IFallingEntity: IEntity
     {
     }
 }

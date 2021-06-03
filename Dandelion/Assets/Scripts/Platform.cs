@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    public Transform deathCheck;
     private bool isDeath;
+
+    public Transform deathCheck;
     public LayerMask whatIsPlayer;
     public float checkRadius;
 
