@@ -14,6 +14,7 @@ public class Healthbar : MonoBehaviour
     public Text HightText;
     public Image HeartImg;
     public GameObject hight;
+    public GameObject playerMove;
 
     private Color liteRed;
     private Color liteYellow;
@@ -73,6 +74,7 @@ public class Healthbar : MonoBehaviour
 
         if(Fill == 0)
         {
+            playerMove.GetComponent<PlayerMove>().animator.SetBool("IsDead", true);
             StartCoroutine(WaiterDeath());
         }
     }

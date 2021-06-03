@@ -7,7 +7,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private int lives = 5;
     [SerializeField] private float jumpForce = 10f;
 
-    private Rigidbody2D rigidbody2D;
+    public Animator animator;
+
+    private new Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
 
     public Transform groundCheck;
@@ -56,7 +58,14 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         if (Input.GetButton("Horizontal"))
+        {
+            animator.SetFloat("Speed", 1);
             Run();
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
+        }
     }
 
     // Update is called once per frame
@@ -67,9 +76,20 @@ public class PlayerMove : MonoBehaviour
             UserBar = healthbar.GetComponent<Healthbar>().UserBar;
             User.AddObserver(UserBar);
         }
-       
-        if(rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))
+
+        if (rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))
+        {
             Jump();
+        }
+        
+        if (rigidbody2D.velocity.y == 0)
+        {
+            animator.SetBool("IsJump", false);
+        }
+        else
+        {
+            animator.SetBool("IsJump", true);
+        }
 
         if(rigidbody2D.velocity.y > 0)
         {

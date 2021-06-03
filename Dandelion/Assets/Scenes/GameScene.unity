@@ -1299,6 +1299,7 @@ MonoBehaviour:
   HightText: {fileID: 736365435}
   HeartImg: {fileID: 38372227}
   hight: {fileID: 1556922696}
+  playerMove: {fileID: 1375155286}
 --- !u!1 &1341316857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1379,7 @@ GameObject:
   - component: {fileID: 1375155288}
   - component: {fileID: 1375155287}
   - component: {fileID: 1375155291}
+  - component: {fileID: 1375155292}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1472,7 +1474,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d40024d505b73435e9701bd52b180959, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96833927159d544cd9ef017d5de0e844, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1514,6 +1516,7 @@ MonoBehaviour:
   speed: 7
   lives: 5
   jumpForce: 10
+  animator: {fileID: 1375155292}
   groundCheck: {fileID: 230832655}
   checkRadius: 0.5
   whatIsGround:
@@ -1523,6 +1526,25 @@ MonoBehaviour:
   rightBorder: 0
   player: {fileID: 1375155286}
   healthbar: {fileID: 1219253730}
+--- !u!95 &1375155292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375155286}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57f583f848a0e6f4cafaeb7bbdcc91c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1441351580
 GameObject:
   m_ObjectHideFlags: 0
