@@ -1,4 +1,5 @@
 using Assets.DandelionLib.Enums;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -37,10 +38,18 @@ public class SettingsMenu : MonoBehaviour
         dropdown.AddOptions(resolutions);
 
         difficultyTypes = new List<string>();
-        difficultyTypes.Add(nameof(DifficultyType.EasyGame));
-        difficultyTypes.Add(nameof(DifficultyType.NormalGame));
-        difficultyTypes.Add(nameof(DifficultyType.HardGame));
-        difficultyTypes.Add(nameof(DifficultyType.ImpossibleGame));
+        difficultyTypes.Add(currentDiffucultyType.ToString());
+        foreach (var type in new DifficultyType[] {
+            DifficultyType.EasyGame,
+            DifficultyType.NormalGame,
+            DifficultyType.HardGame,
+            DifficultyType.ImpossibleGame })
+        {
+            if (type != currentDiffucultyType)
+            {
+                difficultyTypes.Add(type.ToString());
+            }
+        }
 
         difficultyDropdown.ClearOptions();
         difficultyDropdown.AddOptions(difficultyTypes);
@@ -66,6 +75,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void Difficulty(int r)
     {
-        currentDiffucultyType = (DifficultyType)r;
+        Enum.TryParse(difficultyTypes[r], out currentDiffucultyType);
     }
 }
