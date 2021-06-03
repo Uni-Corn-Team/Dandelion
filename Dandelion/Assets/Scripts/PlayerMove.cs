@@ -40,8 +40,14 @@ public class PlayerMove : MonoBehaviour
         collideObject = LayerMask.NameToLayer("Ground");
 
         User = new DandelionLib.User(100, 100);
-        leftBorder = -12f * ((float)currentResolution.width / 1920f);
-        rightBorder = 12f * ((float)currentResolution.width / 1920f);
+
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0)); // bottom-left corner
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1)); // top-right corner
+
+        leftBorder = min.x;
+        rightBorder = max.x;
+        print(min.x);
+        print(max.x);
     }
     
     private void Run()
