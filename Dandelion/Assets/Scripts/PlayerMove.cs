@@ -31,6 +31,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
+        Resolution currentResolution = Screen.currentResolution;
+        
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -38,8 +40,8 @@ public class PlayerMove : MonoBehaviour
         collideObject = LayerMask.NameToLayer("Ground");
 
         User = new DandelionLib.User(100, 100);
-        leftBorder = -7f;
-        rightBorder = 7f;
+        leftBorder = -12 * (currentResolution.width / 1920);
+        rightBorder = 7 * (currentResolution.width / 1920);
     }
     
     private void Run()
