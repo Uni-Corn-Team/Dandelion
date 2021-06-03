@@ -40,8 +40,8 @@ public class PlayerMove : MonoBehaviour
         collideObject = LayerMask.NameToLayer("Ground");
 
         User = new DandelionLib.User(100, 100);
-        leftBorder = -12 * (currentResolution.width / 1920);
-        rightBorder = 7 * (currentResolution.width / 1920);
+        leftBorder = -12f * ((float)currentResolution.width / 1920f);
+        rightBorder = 12f * ((float)currentResolution.width / 1920f);
     }
     
     private void Run()
