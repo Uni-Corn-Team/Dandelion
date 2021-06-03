@@ -57,47 +57,53 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetButton("Horizontal"))
+        if (!animator.GetBool("IsDead"))
         {
-            animator.SetFloat("Speed", 1);
-            Run();
-        }
-        else
-        {
-            animator.SetFloat("Speed", 0);
+            if (Input.GetButton("Horizontal"))
+            {
+                animator.SetFloat("Speed", 1);
+                Run();
+            }
+            else
+            {
+                animator.SetFloat("Speed", 0);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(UserBar == null)
+        if (!animator.GetBool("IsDead"))
         {
-            UserBar = healthbar.GetComponent<Healthbar>().UserBar;
-            User.AddObserver(UserBar);
-        }
+            if (UserBar == null)
+            {
+                UserBar = healthbar.GetComponent<Healthbar>().UserBar;
+                User.AddObserver(UserBar);
+            }
 
-        if (rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))
-        {
-            Jump();
-        }
-        
-        if (rigidbody2D.velocity.y == 0)
-        {
-            animator.SetBool("IsJump", false);
-        }
-        else
-        {
-            animator.SetBool("IsJump", true);
-        }
+            if (rigidbody2D.velocity.y == 0 && Input.GetButton("Vertical"))
+            {
+                Jump();
+            }
 
-        if(rigidbody2D.velocity.y > 0)
-        {
-            Physics2D.IgnoreLayerCollision(playerObject, collideObject, true);
-        }
-        else
-        {
-            Physics2D.IgnoreLayerCollision(playerObject, collideObject, false);
+            if (rigidbody2D.velocity.y == 0)
+            {
+                animator.SetBool("IsJump", false);
+            }
+            else
+            {
+                animator.SetBool("IsJump", true);
+            }
+
+            if (rigidbody2D.velocity.y > 0)
+            {
+                Physics2D.IgnoreLayerCollision(playerObject, collideObject, true);
+            }
+            else
+            {
+                Physics2D.IgnoreLayerCollision(playerObject, collideObject, false);
+            }
         }
     }
 }
