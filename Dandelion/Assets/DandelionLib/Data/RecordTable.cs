@@ -1,5 +1,4 @@
 ﻿using Assets.DandelionLib.Enums;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,53 +6,60 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Assets.DandelionLib.Data
 {
-    [Serializable]
-    class RecordTable
+    static class RecordTable
     {
-        private List<Record> Records { get; set; }
+        static private readonly string fileName = "Results.txt";
+        static private List<Record> BestRecords { get; set; }// = DeserializeBestRecords(fileName);
 
-        [NonSerialized]
-        private readonly string fileName = "Results.txt";
-
-        public RecordTable()
+        static RecordTable()
         {
-            Records = new List<Record>();
-            DeserializeTable();
+            BestRecords = DeserializeBestRecords(fileName);
         }
 
-        public List<Record> GetRecordsByDifficultyType(DifficultyType type)
+        static public bool ReplaceRecordInBest(Record record)
         {
-            return Records.Where(record => record.Type == type).ToList();
+            if (!BestRecords.Any(_ => _.Type == record.Type && _.Score > record.Score))
+            {
+                BestRecords.RemoveAll(_ => _.Type == record.Type);
+                BestRecords.Add(record);
+            }
+            return SerializeBestRecords();
         }
 
-        public void AddRecordToTable(Record record)
+        static public Record GetBestRecordByType(DifficultyType type)
         {
-            Records.Add(record);
+            return BestRecords.Where(_ => _.Type == type).FirstOrDefault() ?? new Record() { Score = 0 };
         }
 
-        public void SerializeTable()
+        static public bool SerializeBestRecords()
+        {
+            bool flag = false;
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
+            {
+                flag = true;
+                formatter.Serialize(fs, BestRecords);
+            }
+            return flag;
+        }
+
+        static private List<Record> DeserializeBestRecords(string fileName)
         {
             FileInfo fileInf = new FileInfo(fileName);
-            if (!(fileInf.Exists))
+            if (fileInf.Exists)
             {
-                fileInf.Create();
+                List<Record> records;
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+                {
+                    records = (List<Record>)(formatter.Deserialize(fs));
+                    //BestRecords = records;
+                }
+                return records ?? new List<Record>();
             }
-
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, this);
-            }
-        }
-
-        private void DeserializeTable()
-        {
-            List<Record> records;
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                records = (List<Record>)(formatter.Deserialize(fs));
-                this.Records = records;
+            else
+            {;
+                return new List<Record>();
             }
         }
     }

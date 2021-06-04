@@ -1,3 +1,4 @@
+using Assets.DandelionLib.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,7 @@ public class MenuControls : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Exit pressed!");
+        //RecordTable.SerializeBestRecords();
     }
 
 }
