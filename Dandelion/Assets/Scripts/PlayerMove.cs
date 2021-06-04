@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
 
     private UserBar UserBar;
 
-    private AudioSource audio;
+    private new AudioSource audio;
 
     private void Awake()
     {
