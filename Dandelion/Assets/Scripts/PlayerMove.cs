@@ -29,8 +29,11 @@ public class PlayerMove : MonoBehaviour
 
     private UserBar UserBar;
 
+    private AudioSource audio;
+
     private void Awake()
     {
+        audio = GetComponent<AudioSource>();
         Resolution currentResolution = Screen.currentResolution;
         
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -70,12 +73,10 @@ public class PlayerMove : MonoBehaviour
             if (myTouch.position.x < center)
             {
                 dir *= -5;
-                Debug.Log("left");
             }
             else
             {
                 dir *= 5;
-                Debug.Log("right");
             }
 
             transform.position = new Vector3(Mathf.Clamp(
@@ -88,14 +89,13 @@ public class PlayerMove : MonoBehaviour
                transform.position.z);
 
             spriteRenderer.flipX = dir.x < 0.0f;
-
-            Debug.Log(positionOnScreen);
         }
 #endif
     }
 
     private void Jump()
-    {     
+    {
+         audio.Play();
          rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 

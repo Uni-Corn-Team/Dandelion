@@ -4,6 +4,7 @@ using DandelionLib.Strategy;
 using DandelionLib.Strategy.GameDifficulty;
 using DandelionLib;
 using Assets.DandelionLib.Enums;
+using DandelionLib.Enums;
 
 public class FallingEntities : MonoBehaviour
 {
@@ -23,9 +24,12 @@ public class FallingEntities : MonoBehaviour
     private bool isTriggered;
     public float checkRadius;
 
+    private AudioSource[] audios;
+
     // Start is called before the first frame update
     void Start()
     {
+        audios = GetComponents<AudioSource>();
         entities = new List<IUnityEntityObject>();
 
         IGameDifficulty gameDifficulty;
@@ -79,7 +83,18 @@ public class FallingEntities : MonoBehaviour
             {
                 Removef = item;
                 index = _falingEntitiesGameObjects.IndexOf(item);
-            
+
+                if (entities[index].Id < (EntityType)4)
+                {
+
+                    audios[0].Play();
+                    print("Booom");
+                }
+                else
+                {
+                    audios[1].Play();
+                }
+
                 entities[index].Colide(player.GetComponent<PlayerMove>().User);
                
                 break;             

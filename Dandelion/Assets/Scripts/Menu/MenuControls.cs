@@ -11,7 +11,9 @@ public class MenuControls : MonoBehaviour
     public void Awake()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        Screen.orientation = ScreenOrientation.LandscapeRight;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
 #endif

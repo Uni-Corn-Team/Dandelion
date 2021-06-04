@@ -3,7 +3,7 @@ using UnityEngine;
 public class FallingEntitiesMove : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     public Vector2 direction;
     // Start is called before the first frame update
     void Start()

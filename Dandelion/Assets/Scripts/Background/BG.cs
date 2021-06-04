@@ -7,7 +7,7 @@ public class BG : MonoBehaviour
     private float m_Size;
     private float m_pos;
     public GameObject player;
-    public GameObject camera;
+    public new GameObject camera;
     // Start is called before the first frame update
     void Start()
     {
