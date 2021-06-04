@@ -1,7 +1,9 @@
 ﻿using Assets.DandelionLib.Enums;
+using System;
 
 namespace Assets.DandelionLib.Data
 {
+    [Serializable]
     class Record
     {
         public string Nickname { get; set; }
