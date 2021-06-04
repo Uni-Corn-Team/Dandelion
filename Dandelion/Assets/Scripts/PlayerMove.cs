@@ -28,6 +28,8 @@ public class PlayerMove : MonoBehaviour
     int playerObject;
     int collideObject;
 
+    private AudioSource audio;
+
     private void Awake()
     {
         Resolution currentResolution = Screen.currentResolution;
@@ -47,6 +49,8 @@ public class PlayerMove : MonoBehaviour
         rightBorder = max.x;
         print(min.x);
         print(max.x);
+
+        audio = GetComponent<AudioSource>();
     }
     
     private void Run()
@@ -58,7 +62,8 @@ public class PlayerMove : MonoBehaviour
     }
 
     private void Jump()
-    {     
+    {
+         audio.Play();
          rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 

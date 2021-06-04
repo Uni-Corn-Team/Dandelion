@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{DD6589AE-BD88-4031-F9D4-91DCF57CD868}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -57,7 +56,6 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DandelionLib\Enums\EnumsConverters\DifficultyTypeConverter.cs" />
     <Compile Include="Assets\Scripts\Death\GameOver.cs" />
     <Compile Include="Assets\DandelionLib\IUnityEntityObject.cs" />
     <Compile Include="Assets\DandelionLib\Entities\EntitiesFactory\FallingHealthFactory.cs" />
@@ -75,7 +73,6 @@
     <Compile Include="Assets\DandelionLib\Entities\FallingEntities\FallingLittleBomb.cs" />
     <Compile Include="Assets\DandelionLib\Enums\EntityType.cs" />
     <Compile Include="Assets\DandelionLib\Data\Record.cs" />
-    <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\DandelionLib\Entities\FallingEntities\FallingLargeBomb.cs" />
     <Compile Include="Assets\Scripts\Healthbar.cs" />
     <Compile Include="Assets\DandelionLib\Entities\EntitiesFactory\IEntityFactory.cs" />
@@ -89,11 +86,11 @@
     <Compile Include="Assets\DandelionLib\Entities\EntitiesFactory\FallingBombFactory.cs" />
     <Compile Include="Assets\DandelionLib\Statics\Rnd.cs" />
     <Compile Include="Assets\DandelionLib\UserBar.cs" />
-    <Compile Include="Assets\Scripts\Background\BG.cs" />
     <Compile Include="Assets\DandelionLib\Strategy\FallingEntityGenerator.cs" />
     <Compile Include="Assets\Scripts\Menu\PauseMenuControls.cs" />
     <Compile Include="Assets\DandelionLib\Entities\FallingEntities\FallingUltimateHeath.cs" />
     <Compile Include="Assets\DandelionLib\Strategy\GameDifficulty\EasyGame.cs" />
+    <Compile Include="Assets\DandelionLib\Enums\EnumsConverters\DifficultyTypeConverter.cs" />
     <Compile Include="Assets\DandelionLib\Statics\NumSet.cs" />
     <Compile Include="Assets\DandelionLib\Strategy\GameDifficulty\ImpossibleGame.cs" />
     <Compile Include="Assets\DandelionLib\Entities\IMiddleEntity.cs" />
@@ -113,6 +110,7 @@
     <Compile Include="Assets\DandelionLib\Entities\FallingEntities\FallingMiddleBomb.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\ClassDiagram.cd" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -778,7 +776,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
