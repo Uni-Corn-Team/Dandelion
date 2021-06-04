@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
     {
         score.text = $"Score: {Healthbar.maxhight}";
 #if UNITY_STANDALONE
-        bestScoreCanvas.SetActive(false);
+        bestScoreCanvas.SetActive(true);
         DifficultyType type = SettingsMenu.currentDiffucultyType;
         string difficulty = type.ToString().TrimEnd('e').TrimEnd('m').TrimEnd('a').TrimEnd('G').ToLower();
         Debug.Log(RecordTable.ReplaceRecordInBest(new Record { Score = Healthbar.maxhight, Type = type }));
