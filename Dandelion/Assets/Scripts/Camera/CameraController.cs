@@ -32,6 +32,15 @@ public class CameraController : MonoBehaviour
         IsPaused = false;
         FindPlayer(isLeft);
 
+#if UNITY_STANDALONE
+        var resolution = Screen.currentResolution;
+        bar.transform.localScale = new Vector3(5f, 5f, 3f);
+        bar.transform.localPosition = new Vector3(
+            (float)(-0.35 * resolution.width),
+            (float)(0.35 * resolution.height),
+            bar.transform.localPosition.z);
+#endif
+
 #if UNITY_ANDROID || UNITY_IOS
         var resolution = Screen.currentResolution;
         pause.SetActive(true);

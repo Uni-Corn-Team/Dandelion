@@ -44,6 +44,10 @@ public class GeneratePlatforms : MonoBehaviour
         }
         if(Player.transform.position.y < _deathline - 5)
         {
+            Camera.transform.position = new Vector2(
+                Camera.transform.position.x,
+                Mathf.Clamp(transform.position.y,
+                _deathline, float.MaxValue));
             StartCoroutine(WaiterDeath());
         }
     }
